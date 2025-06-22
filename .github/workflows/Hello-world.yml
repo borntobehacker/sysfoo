@@ -7,7 +7,12 @@ jobs:
       - name: my-step
         run: echo "Hello World!"
 
-      - name: SEcret Scanning
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Secret Scanning
         run: echo "Secret Scanning"
 
       - name: SAST
