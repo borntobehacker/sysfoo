@@ -27,5 +27,7 @@ jobs:
           image-ref: 'docker.io/nomoreinfo/cf-sysfoo:latest'
           format: 'table'
 
-      - name: DAST- ZAP
-        run: echo "DAST ZAP"
+      - name: DAST - ZAP
+        uses: zaproxy/action-baseline@v0.14.0
+        with:
+          target: 'https://ginandjuice.shop/'
