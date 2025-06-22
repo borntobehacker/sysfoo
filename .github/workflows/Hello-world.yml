@@ -21,8 +21,11 @@ jobs:
       - name: Doceker Image
         run: docker build -t nomoreinfo/cf-sysfoo .
 
-      - name: Doceker Hub
-        run: echo "Docker Hub"
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: 'docker.io/nomoreinfo/cf-sysfoo:latest'
+          format: 'table'
 
       - name: DAST- ZAP
         run: echo "DAST ZAP"
